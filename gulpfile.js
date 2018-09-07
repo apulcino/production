@@ -18,7 +18,7 @@ var destCP6 = destCP0 + '/config';
 var destCP7 = destCP0 + '/library';
 
 function computeNewVersion() {
-    return '2.' + Math.round(Date.now() / 60000);
+    return '2.' + Math.round(Date.now() / 1000);
 }
 let CSTE_AppVersion = computeNewVersion();
 
