@@ -1,20 +1,20 @@
 cd library
-npm install
+sudo npm install
 cd ..
 cd authent
-npm install
+sudo npm install
 cd ..
 cd afoevents
-npm install
+sudo npm install
 cd ..
 cd afopaniers
-npm install
+sudo npm install
 cd ..
 cd aforegistry
-npm install
+sudo npm install
 cd ..
 cd apigateway
-npm install
+sudo npm install
 cd ..
 
 xterm -e node ./apigateway/server.js &
