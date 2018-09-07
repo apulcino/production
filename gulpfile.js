@@ -36,7 +36,7 @@ gulp.task('default', ['cp1', 'cp2', 'cp3', 'cp4', 'cp5', 'cp6', 'cp7'], () => {
         }
     }))
         .pipe(git.commit(() => {
-            return 'commit : ' + destCP1 + ' : ' + CSTE_AppVersion
+            return 'commit versiopn : ' + CSTE_AppVersion
         }));
 });
 
