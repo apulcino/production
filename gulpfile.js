@@ -39,6 +39,10 @@ gulp.task('default', ['cp1', 'cp2', 'cp3', 'cp4', 'cp5', 'cp6', 'cp7'], () => {
         .pipe(git.commit(() => {
             return 'commit version : ' + CSTE_AppVersion
         }))
+        .pipe(git.tag('v' + CSTE_AppVersion, 'Version message', function (err) {
+            if (err)
+                throw err;
+        }))
         .pipe(git.push('TFS', 'master'));
 });
 
