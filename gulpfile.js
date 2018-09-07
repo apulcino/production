@@ -29,15 +29,23 @@ let CSTE_AppVersion = computeNewVersion();
 gulp.task('default', ['cp1', 'cp2', 'cp3', 'cp4', 'cp5', 'cp6', 'cp7'], () => {
     return gulp.src([
         './**'
-    ]).pipe(git.add(function (err) {
-        console.error('git.add : ' + destCP1 + ' : Enter ');
-        if (err) {
-            console.error('git.add : error : ', err);
-        }
-    }))
+    ])
+        .pipe(git.add(function (err) {
+            console.error('git.add : ' + destCP1 + ' : Enter ');
+            if (err) {
+                console.error('git.add : error : ', err);
+            }
+        }))
         .pipe(git.commit(() => {
             return 'commit version : ' + CSTE_AppVersion
-        }));
+        }))
+        .pipe(
+            git.push('TFS', 'master', { args: " -f" }, function (err) {
+                if (err) {
+                    console.error('git.push : error : ', err);
+                }
+            })
+        );
 });
 
 //======================================================================
