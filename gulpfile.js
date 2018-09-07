@@ -25,18 +25,8 @@ let CSTE_AppVersion = computeNewVersion();
 //======================================================================
 // Creation du repertoire production
 //======================================================================
-//gulp.task('default', ['cp1', 'cp2', 'cp3', 'cp4', 'cp5', 'cp6', 'cp7'], () => {
-gulp.task('default', ['cp1'], () => {
-
-    gulp.src('./*')
-        //.pipe(computeNewVersion())
-        .pipe(git.add(function (err) {
-            console.error('git.add : Enter ');
-            if (err) {
-                console.error('git.add : error : ', err);
-            }
-        }))
-    // .pipe(git.commit(() => { return 'commit : ' + CSTE_AppVersion }))
+// gulp.task('default', ['cp1'], () => {
+gulp.task('default', ['cp1', 'cp2', 'cp3', 'cp4', 'cp5', 'cp6', 'cp7'], () => {
 });
 
 //======================================================================
@@ -52,7 +42,7 @@ gulp.task('cp1', ['root'], () => {
     ])
         .pipe(gulp.dest(destCP1))
         .pipe(git.add(function (err) {
-            console.error('git.add : afoevents : Enter ');
+            console.error('git.add : ' + destCP1 + ' : Enter ');
             if (err) {
                 console.error('git.add : error : ', err);
             }
@@ -72,7 +62,16 @@ gulp.task('cp2', ['root'], () => {
         './afopaniers/*.js',
         './afopaniers/*.json',
     ])
-        .pipe(gulp.dest(destCP2));
+        .pipe(gulp.dest(destCP2))
+        .pipe(git.add(function (err) {
+            console.error('git.add : ' + destCP2 + ' : Enter ');
+            if (err) {
+                console.error('git.add : error : ', err);
+            }
+        }))
+        .pipe(git.commit(() => {
+            return 'commit : ' + destCP2 + ' : ' + CSTE_AppVersion
+        }));
 });
 //======================================================================
 // aforegistry
@@ -85,7 +84,16 @@ gulp.task('cp3', ['root'], () => {
         './aforegistry/*.js',
         './aforegistry/*.json',
     ])
-        .pipe(gulp.dest(destCP3));
+        .pipe(gulp.dest(destCP3))
+        .pipe(git.add(function (err) {
+            console.error('git.add : ' + destCP3 + ' : Enter ');
+            if (err) {
+                console.error('git.add : error : ', err);
+            }
+        }))
+        .pipe(git.commit(() => {
+            return 'commit : ' + destCP3 + ' : ' + CSTE_AppVersion
+        }));
 });
 //======================================================================
 // apigateway
@@ -98,7 +106,16 @@ gulp.task('cp4', ['root'], () => {
         './apigateway/*.js',
         './apigateway/*.json',
     ])
-        .pipe(gulp.dest(destCP4));
+        .pipe(gulp.dest(destCP4))
+        .pipe(git.add(function (err) {
+            console.error('git.add : ' + destCP4 + ' : Enter ');
+            if (err) {
+                console.error('git.add : error : ', err);
+            }
+        }))
+        .pipe(git.commit(() => {
+            return 'commit : ' + destCP4 + ' : ' + CSTE_AppVersion
+        }));
 });
 //======================================================================
 // authent
@@ -111,7 +128,16 @@ gulp.task('cp5', ['root'], () => {
         './authent/*.js',
         './authent/*.json',
     ])
-        .pipe(gulp.dest(destCP5));
+        .pipe(gulp.dest(destCP5))
+        .pipe(git.add(function (err) {
+            console.error('git.add : ' + destCP5 + ' : Enter ');
+            if (err) {
+                console.error('git.add : error : ', err);
+            }
+        }))
+        .pipe(git.commit(() => {
+            return 'commit : ' + destCP5 + ' : ' + CSTE_AppVersion
+        }));
 });
 //======================================================================
 // config
@@ -123,7 +149,16 @@ gulp.task('cp6', ['root'], () => {
     return gulp.src([
         './config/*.json'
     ])
-        .pipe(gulp.dest(destCP6));
+        .pipe(gulp.dest(destCP6))
+        .pipe(git.add(function (err) {
+            console.error('git.add : ' + destCP6 + ' : Enter ');
+            if (err) {
+                console.error('git.add : error : ', err);
+            }
+        }))
+        .pipe(git.commit(() => {
+            return 'commit : ' + destCP6 + ' : ' + CSTE_AppVersion
+        }));
 });
 //======================================================================
 // library
@@ -136,14 +171,23 @@ gulp.task('cp7', ['root'], () => {
         './library/*.js',
         './library/*.json',
     ])
-        .pipe(gulp.dest(destCP7));
+        .pipe(gulp.dest(destCP7))
+        .pipe(git.add(function (err) {
+            console.error('git.add : ' + destCP7 + ' : Enter ');
+            if (err) {
+                console.error('git.add : error : ', err);
+            }
+        }))
+        .pipe(git.commit(() => {
+            return 'commit : ' + destCP7 + ' : ' + CSTE_AppVersion
+        }));
 });
 //======================================================================
 //======================================================================
 gulp.task('root', ['init'], () => {
     // copier dans "production"
     console.log('root : ...');
-    makeDir.sync(destCP0);
+    //makeDir.sync(destCP0);
 });
 //======================================================================
 //======================================================================
