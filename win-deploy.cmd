@@ -1,20 +1,20 @@
 cd library
-npm install
+call npm install
 cd ..
 cd authent
-npm install
+call npm install
 cd ..
 cd afoevents
-npm install
+call npm install
 cd ..
 cd afopaniers
-npm install
+call npm install
 cd ..
 cd aforegistry
-npm install
+call npm install
 cd ..
 cd apigateway
-npm install
+call npm install
 cd ..
 
 start "apigateway" node ./apigateway/server.js

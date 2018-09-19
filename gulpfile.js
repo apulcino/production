@@ -26,24 +26,30 @@ let CSTE_AppVersion = computeNewVersion();
 // Creation du repertoire production
 //======================================================================
 gulp.task('default', ['push'], () => {
-
+    console.log('default : Enter : ...');
+    console.log('default : Leave : ...');
 })
 
 //======================================================================
 //======================================================================
 gulp.task('push', ['commit'], () => {
-    git.push('TFS', 'master');
+    console.log('push : Enter : ...');
+    git.push('github', 'master');
+    console.log('push : Leave : ...');
 })
 
 //======================================================================
 //======================================================================
 gulp.task('commit', ['add'], () => {
+    console.log('commit : Enter : ...');
     git.commit('commit version : ' + CSTE_AppVersion);
+    console.log('commit : Leave : ...');
 })
 
 //======================================================================
 //======================================================================
 gulp.task('add', ['cp1', 'cp2', 'cp3', 'cp4', 'cp5', 'cp6', 'cp7'], () => {
+    console.log('add : Enter : ...');
     return gulp.src([
         './**'
     ])
@@ -54,6 +60,7 @@ gulp.task('add', ['cp1', 'cp2', 'cp3', 'cp4', 'cp5', 'cp6', 'cp7'], () => {
             }
         }))
         .pipe(git.tag('v' + CSTE_AppVersion, 'Version message', function (err) {
+            console.log('git.tag : ...');
             if (err)
                 throw err;
         }));
