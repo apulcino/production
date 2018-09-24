@@ -1,9 +1,13 @@
 {
+    "title": "developement.json",
     "Components": {
         "APIConnect": "https://connect.afpforum.com:443/v0.9",
         "APIGateway": {
             "port": 8080,
             "rootRoute": "/afpforum"
+        },
+        "AFOAuthent": {
+            "port": 0
         }
     }
 }

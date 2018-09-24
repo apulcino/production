@@ -3,6 +3,8 @@
 "use strict"
 // ------------------------------------------------------------------------------
 // ------------------------------------------------------------------------------
+// const dnsPromises = require('dns').promises;
+// dnsPromises.setServers(['127.0.0.1:8600']);
 const constantes = require('./constantes');
 
 // ------------------------------------------------------------------------------
@@ -17,6 +19,28 @@ class RegistryMgr {
     constructor(traceMgr) {
         this.traceMgr = traceMgr;
         this.AFORegisteryUrl = [];
+    }
+    //------------------------------------------------------------------------------
+    // [{
+    //     priority: 10,
+    //     weight: 5,
+    //     port: 21223,
+    //     name: 'service.example.com'
+    // }]
+    //------------------------------------------------------------------------------
+    Resolve(reqUrl, cback) {
+        console.log("Resolving : ", reqUrl);
+
+        const dns = require('dns');
+        dns.setServers(['127.0.0.1:8600']);
+        dns.resolveSrv("authent-v1_50406.service.consul", (err, addresses) => {
+            if (err) {
+                console.error('resolveSrv : error : ', err);
+            }
+            else {
+                console.log('resolveSrv : ', addresses)
+            }
+        });
     }
     //------------------------------------------------------------------------------
     //------------------------------------------------------------------------------
