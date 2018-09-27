@@ -1,5 +1,4 @@
 "use strict"
-
 const config = require('config');
 const http = require('http');
 const application = require('./application');
@@ -29,7 +28,7 @@ server.listen(port, function () {
 
 const regMgr = new regsitryMgr();
 const mcRecver = new multicastRecver(constantes.getServerIpAddress(), constantes.MCastAppPort, constantes.MCastAppAddr, constantes.getServerPublicIpAddress(), (address, port, message) => {
-  traceMgr.debug('Recv Msg From : ' + address + ':' + port + ' - ' + JSON.stringify(message));
+  // traceMgr.debug('Recv Msg From : ' + address + ':' + port + ' - ' + JSON.stringify(message));
   if (message.type === constantes.MSMessageTypeEnum.regAnnonce) {
     regMgr.add(message.host, message.port);
   }

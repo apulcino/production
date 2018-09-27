@@ -24,6 +24,7 @@ exports.MSTypeEnum = Object.freeze({
 //------------------------------------------------------------------------------
 exports.MSPathnameEnum = Object.freeze({
     "afoHealth": "/health",
+    "afoApiDocs": "/api-docs",
     "afoRegistry": "/api/v1/registry",
     "afoEvents": "/api/v1/events",
     "afoPaniers": "/api/v1/selections",
