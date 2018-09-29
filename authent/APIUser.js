@@ -59,8 +59,11 @@ router.post('/login', jsonParser, (req, res) => {
  * ------------------------------------------------------------------------------
  */
 function checkIdentityValue(body) {
+    if (!body)
+        body = {};
     body.Login = body.Login || '';
     body.Password = body.Password || '';
+    console.log("Bosy : " + JSON.stringify(body));
     if (0 === body.Login.length * body.Password.length) {
         return false;
     }
