@@ -23,21 +23,21 @@ class multicastSender {
         this.intervalID = null;
         this.MCAST_PORT = _MCAST_PORT;
         this.MCAST_ADDR = _MCAST_ADDR;
-        this.server = dgram.createSocket({ type: 'udp4', reuseAddr: true });
-        this.server.bind(this.PORT, () => {
-            this.server.setBroadcast(true);
-            this.server.setMulticastLoopback(true);
-            this.server.setMulticastTTL(128);
-            this.server.addMembership(this.MCAST_ADDR);
+        // this.server = dgram.createSocket({ type: 'udp4', reuseAddr: true });
+        // this.server.bind(this.PORT, () => {
+        //     this.server.setBroadcast(true);
+        //     this.server.setMulticastLoopback(true);
+        //     this.server.setMulticastTTL(128);
+        //     this.server.addMembership(this.MCAST_ADDR);
 
-            // for (let i = 0; i < localPublicIpAddress.length; i++) {
-            //     try {
-            //         this.server.addMembership(this.MCAST_ADDR, localPublicIpAddress[i]);
-            //     } catch (err) {
-            //         console.error('multicastSender : Exception : ', err);
-            //     }
-            // }
-        });
+        //     // for (let i = 0; i < localPublicIpAddress.length; i++) {
+        //     //     try {
+        //     //         this.server.addMembership(this.MCAST_ADDR, localPublicIpAddress[i]);
+        //     //     } catch (err) {
+        //     //         console.error('multicastSender : Exception : ', err);
+        //     //     }
+        //     // }
+        // });
     }
     //------------------------------------------------------------------------------
     // Envoyer un message
@@ -67,7 +67,9 @@ class multicastSender {
     // Envoyer les messages
     //------------------------------------------------------------------------------
     broadcastNew() {
-        this.server.send(this.message, 0, this.message.length, this.MCAST_PORT, this.MCAST_ADDR);
+        if (this.server) {
+            this.server.send(this.message, 0, this.message.length, this.MCAST_PORT, this.MCAST_ADDR);
+        }
     }
 };
 module.exports = multicastSender;
