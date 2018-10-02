@@ -101,6 +101,7 @@ const reSendRequest = function (req, res, Srv, TRANSID, successCB, errorCB) {
     errorCB = errorCB || function () { };
     res.set('XAFP-TRANSID', TRANSID);
     res.set('XAFP-SOURCE', req.url);
+    res.set('XAFP-HOST-SOURCE', Srv.url);
     req.headers['XAFP-TRANSID'] = TRANSID;
     req.headers['content-type'] = "application/json"
     req.url = Srv.realUrl;

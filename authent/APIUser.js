@@ -12,6 +12,7 @@ let apiConnect = 'https://connect.afpforum.com:443/v0.9';
 if (config.has('Components.APIConnect')) {
     apiConnect = config.get('Components.APIConnect');
 }
+
 //------------------------------------------------------------------------------
 // POST : http://localhost:3000/api/user/login
 //------------------------------------------------------------------------------
@@ -63,7 +64,7 @@ function checkIdentityValue(body) {
         body = {};
     body.Login = body.Login || '';
     body.Password = body.Password || '';
-    console.log("Bosy : " + JSON.stringify(body));
+    console.log("Body : " + JSON.stringify(body));
     if (0 === body.Login.length * body.Password.length) {
         return false;
     }
