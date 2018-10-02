@@ -37,7 +37,7 @@ var consulMgr = {
         "Meta": {},
         "EnableTagOverride": false,
         "Check": {
-            "DeregisterCriticalServiceAfter": "1m",
+            "DeregisterCriticalServiceAfter": "10m",
             "HTTP": "",
             "Interval": "10s",
             "TTL": "15s"
@@ -92,6 +92,7 @@ var consulMgr = {
         });
     },
     HealthyServices: [],
+    ResetCptr: 0,
     /**
      * convert public url to microservice local url
      * @param {string} __reqUrl - The public url to convert to microservice private url.
@@ -99,7 +100,10 @@ var consulMgr = {
      * @param {requestCallback} _callbackOK - The callback that handles the success.
     */
     Resolve: function (_reqUrl, _callbackErr, _callbackOK) {
-        this.HealthyServices = [];
+        this.ResetCptr++;
+        if (0 === this.ResetCptr % 1000) {
+            this.HealthyServices = [];
+        }
         let reqUrl = _reqUrl;
         let callbackErr = _callbackErr || function () { };
         let callbackOK = _callbackOK || function () { };
@@ -130,14 +134,14 @@ function ResolveUrl(reqUrl, HealthyServices) {
     // ]
     let token = reqUrl.split("/");
     let reqSrvName = token[1] + "-" + token[2];
-    let selService = HealthyServices.find(service => {
+    let selService = HealthyServices.filter(service => {
         if (service.name === reqSrvName) {
             service.realUrl = reqUrl.replace(token[1], "api");
             console.log('ResolveUrl : ' + reqUrl + " => " + service.realUrl);
             return true;
         }
     });
-    return selService;
+    return JSON.parse(JSON.stringify(selService));
 }
 
 exports.consulMgr = consulMgr;

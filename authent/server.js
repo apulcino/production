@@ -3,7 +3,7 @@ const config = require('config');
 const http = require('http');
 const application = require('./application');
 const constantes = require('../library/constantes');
-const multicastRecver = require('../library/multicastRecver');
+// const multicastRecver = require('../library/multicastRecver');
 const regsitryMgr = require('../library/registryMgr');
 const traceMgr = new (require('../library/tracemgr'))('AFOAuthent');
 
@@ -27,10 +27,10 @@ server.listen(port, function () {
 });
 
 const regMgr = new regsitryMgr();
-const mcRecver = new multicastRecver(constantes.getServerIpAddress(), constantes.MCastAppPort, constantes.MCastAppAddr, constantes.getServerPublicIpAddress(), (address, port, message) => {
-  // traceMgr.debug('Recv Msg From : ' + address + ':' + port + ' - ' + JSON.stringify(message));
-  if (message.type === constantes.MSMessageTypeEnum.regAnnonce) {
-    regMgr.add(message.host, message.port);
-  }
-});
+// const mcRecver = new multicastRecver(constantes.getServerIpAddress(), constantes.MCastAppPort, constantes.MCastAppAddr, constantes.getServerPublicIpAddress(), (address, port, message) => {
+//   // traceMgr.debug('Recv Msg From : ' + address + ':' + port + ' - ' + JSON.stringify(message));
+//   if (message.type === constantes.MSMessageTypeEnum.regAnnonce) {
+//     regMgr.add(message.host, message.port);
+//   }
+// });
 

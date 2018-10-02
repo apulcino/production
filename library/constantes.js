@@ -54,26 +54,18 @@ exports.getServerPublicIpAddress = function () {
 }
 //------------------------------------------------------------------------------
 //------------------------------------------------------------------------------
-const mcSender = new multicastSender(this.MCastAppPort, this.MCastAppAddr, this.getServerPublicIpAddress());
+// const mcSender = new multicastSender(this.MCastAppPort, this.MCastAppAddr, this.getServerPublicIpAddress());
 //------------------------------------------------------------------------------
 // http://localhost:5555/registry/declare/MSType?url=....
 //------------------------------------------------------------------------------
 exports.declareService = function (traceMgr, _MSRegistryUrlArray, type, host, port, pathname) {
-    mcSender.sendAlways(JSON.stringify({
-        type: this.MSMessageTypeEnum.compoDeclare,
-        compoType: type,
-        host: host,
-        port: port,
-        pathname: pathname
-    }), 10000);
-
-    // _MSRegistryUrlArray = _MSRegistryUrlArray || [];
-    // if (0 === _MSRegistryUrlArray.length) {
-    //     return;
-    // }
-    // _MSRegistryUrlArray.forEach((_MSRegistryUrl) => {
-    //     declareServiceOnce(traceMgr, _MSRegistryUrl.regUrl, type, host, port, pathname);
-    // });
+    // mcSender.sendAlways(JSON.stringify({
+    //     type: this.MSMessageTypeEnum.compoDeclare,
+    //     compoType: type,
+    //     host: host,
+    //     port: port,
+    //     pathname: pathname
+    // }), 10000);
 };
 //------------------------------------------------------------------------------
 //------------------------------------------------------------------------------
