@@ -21,7 +21,7 @@ const server = http.createServer(application);
 server.listen(port, function () {
   var host = constantes.getServerIpAddress();
   var port = server.address().port
-  constantes.declareService(traceMgr, AFORegisteryUrl, constantes.MSTypeEnum.afoAuthent, host, port, constantes.MSPathnameEnum.afoAuthent);
+  //constantes.declareService(traceMgr, AFORegisteryUrl, constantes.MSTypeEnum.afoAuthent, host, port, constantes.MSPathnameEnum.afoAuthent);
   traceMgr.info("listening at http://%s:%s", host, port)
   application.initialize(host, port);
 });
