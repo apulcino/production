@@ -28,26 +28,26 @@ class RegistryMgr {
     //     name: 'service.example.com'
     // }]
     //------------------------------------------------------------------------------
-    Resolve(reqUrl, cback) {
-        console.log("Resolving : ", reqUrl);
+    // Resolve(reqUrl, cback) {
+    //     console.log("Resolving : ", reqUrl);
 
-        const dns = require('dns');
-        dns.setServers(['127.0.0.1:8600']);
-        dns.resolveSrv("authent-v1_50406.service.consul", (err, addresses) => {
-            if (err) {
-                console.error('resolveSrv : error : ', err);
-            }
-            else {
-                console.log('resolveSrv : ', addresses)
-            }
-        });
-    }
+    //     const dns = require('dns');
+    //     dns.setServers(['127.0.0.1:8600']);
+    //     dns.resolveSrv("authent-v1_50406.service.consul", (err, addresses) => {
+    //         if (err) {
+    //             console.error('resolveSrv : error : ', err);
+    //         }
+    //         else {
+    //             console.log('resolveSrv : ', addresses)
+    //         }
+    //     });
+    // }
     //------------------------------------------------------------------------------
     //------------------------------------------------------------------------------
     checkRegistryStatus() {
         let AFORegisteryUrlList = this.getList();
-        AFORegisteryUrlList.forEach((reg, index) => {
-            constantes.getServiceList(this.traceMgr, reg).then(data => {
+        AFORegisteryUrlList.forEach((reg) => {
+            constantes.getServiceList(this.traceMgr, reg).then(() => {
                 // ne rien faire...tout est OK
             }).catch((AFORegisteryUrlWithError) => {
                 // Indiquer que cet annuaire n'est pas fiable...
@@ -119,5 +119,6 @@ class RegistryMgr {
             this.delete(failedRegistry.regUrl || '');
         }
     }
-};
+}
+
 module.exports = RegistryMgr;

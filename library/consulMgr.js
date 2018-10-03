@@ -137,7 +137,7 @@ function ResolveUrl(reqUrl, HealthyServices) {
     let selService = HealthyServices.filter(service => {
         if (service.name === reqSrvName) {
             service.realUrl = reqUrl.replace(token[1], "api");
-            console.log('ResolveUrl : ' + reqUrl + " => " + service.realUrl);
+            //console.log('ResolveUrl : ' + reqUrl + " => " + service.realUrl);
             return true;
         }
     });

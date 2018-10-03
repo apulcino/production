@@ -62,5 +62,6 @@ class traceMgr {
         arguments[0] = '' + this.date.getTime() + ' : DEBUG : ' + this.name + ' : ' + arguments[0] + colors.Reset;
         console.log.apply(null, arguments);
     }
-};
+}
+
 module.exports = traceMgr;

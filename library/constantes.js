@@ -1,7 +1,7 @@
 "use strict"
 const os = require('os');
 const fetch = require('node-fetch');
-const multicastSender = require('../library/multicastSender');
+//const multicastSender = require('../library/multicastSender');
 
 exports.MCastAppPort = 22222;
 exports.MCastAppAddr = "224.0.0.222";
@@ -58,15 +58,15 @@ exports.getServerPublicIpAddress = function () {
 //------------------------------------------------------------------------------
 // http://localhost:5555/registry/declare/MSType?url=....
 //------------------------------------------------------------------------------
-exports.declareService = function (traceMgr, _MSRegistryUrlArray, type, host, port, pathname) {
-    // mcSender.sendAlways(JSON.stringify({
-    //     type: this.MSMessageTypeEnum.compoDeclare,
-    //     compoType: type,
-    //     host: host,
-    //     port: port,
-    //     pathname: pathname
-    // }), 10000);
-};
+//exports.declareService = function (traceMgr, _MSRegistryUrlArray, type, host, port, pathname) {
+// mcSender.sendAlways(JSON.stringify({
+//     type: this.MSMessageTypeEnum.compoDeclare,
+//     compoType: type,
+//     host: host,
+//     port: port,
+//     pathname: pathname
+// }), 10000);
+//};
 //------------------------------------------------------------------------------
 //------------------------------------------------------------------------------
 // const declareServiceOnce = function (traceMgr, _MSRegistryUrl, type, host, port, pathname) {
