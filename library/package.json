@@ -11,6 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "const": "^1.0.0",
     "consul": "^0.34.0",
     "node-fetch": "^2.2.0"
   }
