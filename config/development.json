@@ -7,7 +7,7 @@
             "rootRoute": "/afpforum"
         },
         "AFOAuthent": {
-            "port": 3000
+            "port": 0
         }
     }
 }

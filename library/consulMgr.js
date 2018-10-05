@@ -37,7 +37,7 @@ var consulMgr = {
         "Meta": {},
         "EnableTagOverride": false,
         "Check": {
-            "DeregisterCriticalServiceAfter": "10m",
+            "DeregisterCriticalServiceAfter": "1m",
             "HTTP": "",
             "Interval": "10s",
             "TTL": "15s"
