@@ -15,7 +15,7 @@ var mServiceRef = {
 
 
 application.use(function (req, res, next) {
-    res.setHeader('XAFP-HOST-SOURCE', mServiceRef.Address + ':' + mServiceRef.Port);
+    res.setHeader('XAFP-HOST-SOURCE', mServiceRef.Address + ':' + mServiceRef.Port + ':' + process.pid);
     next();
 });
 
