@@ -1,0 +1,16 @@
+{
+    "apps": [
+        {
+            "name": "apigateway",
+            "script": "./apigateway/server.js",
+            "exec_mode": "fork_mode",
+            "instances": 2
+        },
+        {
+            "name": "authent",
+            "script": "./authent/server.js",
+            "exec_mode": "fork_mode",
+            "instances": 2
+        }
+    ]
+}
