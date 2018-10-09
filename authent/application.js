@@ -13,7 +13,6 @@ var mServiceRef = {
     "Port": 0
 }
 
-
 application.use(function (req, res, next) {
     res.setHeader('XAFP-HOST-SOURCE', mServiceRef.Address + ':' + mServiceRef.Port + ':' + process.pid);
     next();

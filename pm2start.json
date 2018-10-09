@@ -3,13 +3,13 @@
         {
             "name": "apigateway",
             "script": "./apigateway/server.js",
-            "exec_mode": "fork_mode",
+            "exec_mode": "cluster",
             "instances": 2
         },
         {
             "name": "authent",
             "script": "./authent/server.js",
-            "exec_mode": "fork_mode",
+            "exec_mode": "cluster",
             "instances": 2
         }
     ]

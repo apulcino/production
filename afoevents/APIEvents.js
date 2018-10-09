@@ -9,9 +9,10 @@ const router = express.Router();
 const apiConnect = 'https://connect.afpforum.com:443/v0.9';
 
 //------------------------------------------------------------------------------
-// http://localhost:3001/api/events?lang=fr
+// http://158.50.163.7:8080/afpforum/events/v1/events/list?lang=fr
+// http://localhost:3001/api/v1/events/list?lang=fr
 //------------------------------------------------------------------------------
-router.get('/', (req, res) => {
+router.get('/list', (req, res) => {
     var TRANSID = req.get('XAFP-TRANSID');
     traceMgr.log(TRANSID + ' : Return events list')
     getApiEvents().then(resp => {
@@ -21,8 +22,8 @@ router.get('/', (req, res) => {
     });
 })
 //------------------------------------------------------------------------------
-// http://localhost:3001/api/events/events-by-sequence/CUY01?lang=fr
-// http://localhost:3001/api/events/events-by-sequence/CUY01,CKJ50?lang=fr
+// http://localhost:3100/api/v1/events/events-by-sequence/CUY01?lang=fr
+// http://localhost:3001/api/v1/events/events-by-sequence/CUY01,CKJ50?lang=fr
 //------------------------------------------------------------------------------
 router.get('/events-by-sequence/:eventId', (req, res) => {
     let eventIdList = req.params.eventId;

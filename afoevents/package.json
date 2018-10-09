@@ -9,7 +9,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "config": "^2.0.1",
     "express": "^4.16.3",
-    "node-fetch": "^2.2.0"
+    "node-fetch": "^2.2.0",
+    "swagger-ui-express": "^4.0.1"
   }
 }

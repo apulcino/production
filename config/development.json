@@ -7,7 +7,13 @@
             "rootRoute": "/afpforum"
         },
         "AFOAuthent": {
-            "port": 0
+            "port": 3000
+        },
+        "AFOEvents": {
+            "port": 3100
+        },
+        "AFOSelections": {
+            "port": 3200
         }
     }
 }
