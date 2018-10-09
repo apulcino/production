@@ -1,0 +1,180 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "AFP Selections API",
+    "description": "Selections component API description",
+    "license": {
+      "name": "MIT",
+      "url": "https://opensource.org/licenses/MIT"
+    }
+  },
+  "host": "localhost:3000",
+  "basePath": "/api/v1/selections",
+  "tags": [
+    {
+      "name": "User",
+      "description": "API for selections functionalities"
+    }
+  ],
+  "schemes": [
+    "http"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "tags": [
+          "Selections"
+        ],
+        "summary": "Get user detail",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "auth",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "user authentication token"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/SimpleUserDesc"
+            }
+          }
+        }
+      }
+    },
+    "/login": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Authentify the user",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "Userlogin",
+            "schema": {
+              "$ref": "#/definitions/UserLogin"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/UserDesc"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "UserLogin": {
+      "properties": {
+        "Login": {
+          "type": "string"
+        },
+        "Password": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "Login",
+        "Password"
+      ]
+    },
+    "UserDesc": {
+      "properties": {
+        "Data": {
+          "properties": {
+            "Login": {
+              "type": "string"
+            },
+            "AuthToken": {
+              "type": "string"
+            },
+            "ExpirationUtcDate": {
+              "type": "string"
+            },
+            "UserPath": {
+              "type": "string"
+            },
+            "Culture": {
+              "type": "string"
+            },
+            "Email": {
+              "type": "string"
+            },
+            "IsPasswordEditable": {
+              "type": "boolean"
+            },
+            "IsAuthTokenExpired": {
+              "type": "boolean"
+            },
+            "TokenIssueDateUtc": {
+              "type": "string"
+            },
+            "TokenExpirationDateUtc": {
+              "type": "string"
+            },
+            "hasAccessToTexts": {
+              "type": "boolean"
+            },
+            "hasAccessToPictures": {
+              "type": "boolean"
+            },
+            "password": {
+              "type": "string"
+            }
+          }
+        },
+        "IsSuccess": {
+          "type": "boolean"
+        },
+        "Message": {
+          "type": "string"
+        },
+        "Error": {
+          "type": "string"
+        }
+      }
+    },
+    "SimpleUserDesc": {
+      "properties": {
+        "Login": {
+          "type": "string"
+        },
+        "Culture": {
+          "type": "string"
+        },
+        "Email": {
+          "type": "string"
+        },
+        "IsPasswordEditable": {
+          "type": "boolean"
+        },
+        "IsAuthTokenExpired": {
+          "type": "boolean"
+        },
+        "TokenIssueDateUtc": {
+          "type": "string"
+        },
+        "TokenExpirationDateUtc": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
