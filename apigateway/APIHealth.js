@@ -6,7 +6,7 @@
 // /admin/v1/autotest : autotest du composant, lançant un test de présence des différentes resources requises par le composant et renvoyant un statut d’état de ces resources.
 // /admin/v1/version : statut renvoyant les informations relatives à la version.
 //------------------------------------------------------------------------------
-const constantes = require('../library/constantes');
+const constantes = require('./library/constantes');
 const express = require('express');
 const router = express.Router();
 

@@ -2,10 +2,10 @@
 //------------------------------------------------------------------------------
 //------------------------------------------------------------------------------
 const config = require('config');
-const constantes = require('../library/constantes');
+const constantes = require('./library/constantes');
 const express = require('express');
 const router = express.Router();
-const consulMgr = require('../library/consulMgr').consulMgr;
+const consulMgr = require('./library/consulMgr').consulMgr;
 
 //------------------------------------------------------------------------------
 // http://localhost:8080/api-docs

@@ -4,7 +4,7 @@ const express = require('express');
 const application = express();
 const bodyParser = require("body-parser");
 const jsonParser = bodyParser.json();
-const constantes = require('../library/constantes');
+const constantes = require('./library/constantes');
 const apiRegistryRoutes = require('./gateway');
 
 // Gestion de la route vers : http://localhost:8080/api-docs

@@ -1,9 +1,9 @@
 const config = require('config');
 const http = require('http');
-const constantes = require('../library/constantes');
-const traceMgr = new (require('../library/tracemgr'))('APIGateway');
+const constantes = require('./library/constantes');
+const traceMgr = new (require('./library/tracemgr'))('APIGateway');
 const application = require('./application');
-const consulMgr = require('../library/consulMgr').consulMgr;
+const consulMgr = require('./library/consulMgr').consulMgr;
 const server = http.createServer(application);
 
 // Configuration utilisée...

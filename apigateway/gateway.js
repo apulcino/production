@@ -1,11 +1,11 @@
 "use strict"
 //------------------------------------------------------------------------------
 //------------------------------------------------------------------------------
-const constantes = require('../library/constantes');
-const traceMgr = new (require('../library/tracemgr'))('APIGateway');
-//const multicastRecver = require('../library/multicastRecver');
-const regsitryMgr = require('../library/registryMgr');
-const consulMgr = require('../library/consulMgr').consulMgr;
+const constantes = require('./library/constantes');
+const traceMgr = new (require('./library/tracemgr'))('APIGateway');
+//const multicastRecver = require('./library/multicastRecver');
+const regsitryMgr = require('./library/registryMgr');
+const consulMgr = require('./library/consulMgr').consulMgr;
 
 const http = require('http');
 const express = require('express');
