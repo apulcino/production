@@ -14,10 +14,10 @@ if (config.has('Components.APIConnect')) {
 }
 
 //------------------------------------------------------------------------------
-// POST : http://localhost:3000/api/user/login
+// POST : http://localhost:3000/user/login
 //------------------------------------------------------------------------------
 router.post('/login', jsonParser, (req, res) => {
-    console.log('POST : /api/user/login');
+    console.log('POST : ' + req.url);
     if (false === checkIdentityValue(req.body)) {
         res.set('XAFP-SOURCE', '');
         res.status(400).json({

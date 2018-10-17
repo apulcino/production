@@ -4,7 +4,7 @@
         "APIConnect": "https://connect.afpforum.com:443/v0.9",
         "APIGateway": {
             "port": 8080,
-            "rootRoute": "/afpforum"
+            "rootRoute": "/"
         },
         "AFOAuthent": {
             "port": 3000

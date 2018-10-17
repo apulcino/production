@@ -10,12 +10,12 @@ const apiConnect = 'https://connect.afpforum.com:443/v0.9';
 // middleware that is specific to this router
 //------------------------------------------------------------------------------
 router.use((req, res, next) => {
-    console.log('Time: ', Date.now());
+    console.log('Req : ', req.url);
     next();
 });
 
 //------------------------------------------------------------------------------
-// http://localhost:3002/api/selections
+// http://localhost:3002/selections
 //------------------------------------------------------------------------------
 router.get('/', (req, res) => {
     getApiSelections(req.query.auth).then(resp => {
@@ -25,7 +25,7 @@ router.get('/', (req, res) => {
     });
 })
 //------------------------------------------------------------------------------
-// http://localhost:3002/api/selections/d4f23f5d-69fc-4d29-84d7-053ac10c16af?auth=10C5...BBAE
+// http://localhost:3002/selections/d4f23f5d-69fc-4d29-84d7-053ac10c16af?auth=10C5...BBAE
 //------------------------------------------------------------------------------
 router.get('/:selectionId', (req, res) => {
     getApiSelection(req.query.auth, req.params.selectionId).then(resp => {
@@ -35,7 +35,7 @@ router.get('/:selectionId', (req, res) => {
     });
 })
 //------------------------------------------------------------------------------
-// http://localhost:3002/api/selections/d4f23f5d-69fc-4d29-84d7-053ac10c16af/page/1?auth=10C5...BBAE
+// http://localhost:3002/selections/d4f23f5d-69fc-4d29-84d7-053ac10c16af/page/1?auth=10C5...BBAE
 //------------------------------------------------------------------------------
 router.get('/:selectionId/page/:page', (req, res) => {
     getApiSelectionPage(req.query.auth, req.params.selectionId, req.params.page).then(resp => {

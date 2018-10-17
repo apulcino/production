@@ -113,16 +113,18 @@ var consulMgr = {
     ResetCptr: 0,
     /**
      * convert public url to microservice local url
+     * @param {string} __host - The host ex: 'msafo.srv.afoevents.v1:8080'.
      * @param {string} __reqUrl - The public url to convert to microservice private url.
      * @param {requestCallback} _callbackErr - The callback that handles the error.
      * @param {requestCallback} _callbackOK - The callback that handles the success.
     */
-    Resolve: function (traceMgr, _reqUrl, _callbackErr, _callbackOK) {
+    Resolve: function (traceMgr, _host, _reqUrl, _callbackErr, _callbackOK) {
         let callbackErr = _callbackErr || function () { };
         let callbackOK = _callbackOK || function () { };
         let reqUrl = _reqUrl;
-        let token = reqUrl.split("/");
-        let srvName = token[1] + "-" + token[2];
+        let token = _host.split(':');
+        token = token[0].split('.')
+        let srvName = token[2] + "-" + token[3];
 
         this.ResetCptr++;
         if (0 === this.ResetCptr % 1000) {
@@ -137,10 +139,10 @@ var consulMgr = {
                 },
                 (services) => {
                     availableServices = this.setHealthyService(services);
-                    callbackOK(ResolveUrl(reqUrl, token[1], srvName, availableServices));
+                    callbackOK(ResolveUrl(reqUrl, srvName, availableServices));
                 });
         } else {
-            callbackOK(ResolveUrl(reqUrl, token[1], srvName, availableServices));
+            callbackOK(ResolveUrl(reqUrl, srvName, availableServices));
         }
     },
     /**
@@ -189,10 +191,14 @@ var consulMgr = {
 
 /**
  * convert public url to microservice local url
- * @param {string} srvName - service name (authent-v1)
- * Retourne : http://158.50.163.7:51102/api/v1/user/login
+ * @param {string} reqUrl - url original ("/events/events-by-sequence/CUY01?lang=fr")
+ * @param {string} srvName - service name (afoevents-v1)
+ * Retourne :
+ * http://158.50.163.7:3100/events/events-by-sequence/CUY01?lang=fr
+ * à partir de l'appel de :
+ * http://msafo.srv.afoevents.v1:8080/events/events-by-sequence/CUY01?lang=fr
 */
-function ResolveUrl(reqUrl, pattern, srvName, HealthyServices) {
+function ResolveUrl(reqUrl, srvName, HealthyServices) {
     // [
     // "Service":{
     //     "ID":"authent-v1_51609",
@@ -219,7 +225,7 @@ function ResolveUrl(reqUrl, pattern, srvName, HealthyServices) {
     // ]
     let selService = HealthyServices.filter(service => {
         if (service.Service === srvName) {
-            service.realUrl = reqUrl.replace(pattern, "api");
+            service.realUrl = service.url + reqUrl;
             return true;
         }
     });

@@ -18,11 +18,12 @@ application.use(function (req, res, next) {
     next();
 });
 
+const apiHealthRoutes = require('./APIHealth');
+application.use(constantes.MSPathnameEnum.afoHealth, apiHealthRoutes);
+
 const apiUserRoutes = require('./APIUser');
 application.use(constantes.MSPathnameEnum.afoAuthent, apiUserRoutes);
 
-const apiHealthRoutes = require('./APIHealth');
-application.use(constantes.MSPathnameEnum.afoHealth, apiHealthRoutes);
 
 application.initialize = function (host, port) {
     // http://localhost:XXXX/api-docs.
