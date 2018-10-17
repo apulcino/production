@@ -1,0 +1,18 @@
+{
+  "name": "library",
+  "version": "1.0.0",
+  "description": "",
+  "main": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "pretest": "eslint *.js",
+    "debug": "node --inspect --debug-brk"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "const": "^1.0.0",
+    "consul": "^0.34.0",
+    "node-fetch": "^2.2.0"
+  }
+}
