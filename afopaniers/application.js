@@ -1,7 +1,7 @@
 "use strict"
-const constantes = require('../library/constantes');
-const traceMgr = new (require('../library/tracemgr'))('AFOPaniers');
-const consulMgr = require('../library/consulMgr').consulMgr;
+const constantes = require('./library/constantes');
+const traceMgr = new (require('./library/tracemgr'))('AFOPaniers');
+const consulMgr = require('./library/consulMgr').consulMgr;
 const express = require('express');
 const application = express();
 var swaggerUi = require('swagger-ui-express');

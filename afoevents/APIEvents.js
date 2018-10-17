@@ -1,5 +1,5 @@
 "use strict"
-const traceMgr = new (require('../library/tracemgr'))('APIEvents');
+const traceMgr = new (require('./library/tracemgr'))('APIEvents');
 const fetch = require('node-fetch');
 const express = require('express');
 const router = express.Router();

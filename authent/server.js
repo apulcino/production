@@ -2,8 +2,8 @@
 const config = require('config');
 const http = require('http');
 const application = require('./application');
-const constantes = require('../library/constantes');
-const traceMgr = new (require('../library/tracemgr'))('AFOAuthent');
+const constantes = require('./library/constantes');
+const traceMgr = new (require('./library/tracemgr'))('AFOAuthent');
 
 if (config.has('title')) {
   traceMgr.info("using configuration file : %s", config.get('title'));
