@@ -22,9 +22,9 @@
             "host": "158.50.163.114",
             "ref": "origin/master",
             "repo": "https://github.com/apulcino/production.git",
-            "path": "./MSAFO/production",
-            "pre-setup": "npm install git",
-            "post-deploy": "cd apigateway && npm install && cd library && npm install && pm2 reload ecosystem.json --env production"
+            "path": "./MSAFO",
+            "pre-setup": "",
+            "post-deploy": "chmod +x linux-deploy.sh && linux-deploy.sh"
         }
     }
 }
