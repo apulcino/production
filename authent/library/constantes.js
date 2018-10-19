@@ -3,9 +3,9 @@ const os = require('os');
 const fetch = require('node-fetch');
 //const multicastSender = require('../library/multicastSender');
 
-// exports.MCastAppPort = 22222;
-// exports.MCastAppAddr = "224.0.0.222";
-// exports.MSRegistryUrl = process.env.MS_REGISTRY_URL || 'http://localhost:5555/registry';
+exports.MCastAppPort = 22222;
+exports.MCastAppAddr = "224.0.0.222";
+exports.MSRegistryUrl = process.env.MS_REGISTRY_URL || 'http://localhost:5555/registry';
 //------------------------------------------------------------------------------
 //------------------------------------------------------------------------------
 exports.MSMessageTypeEnum = Object.freeze({
