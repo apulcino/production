@@ -27,7 +27,7 @@
             "path": "./MSAFO",
             "pre-setup": "",
             "post-setup": "",
-            "post-deploy": "npm install"
+            "post-deploy": ""
         }
     }
 }
