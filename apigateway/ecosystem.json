@@ -20,14 +20,14 @@
         "production": {
             "user": "apulcino",
             "host": [
-                "158.50.163.114"
+                "vspar-afo-dev-01"
             ],
             "ref": "origin/master",
             "repo": "https://github.com/apulcino/production.git",
             "path": "./MSAFO",
-            "pre-setup": "",
-            "post-setup": "",
-            "post-deploy": ""
+            "pre-setup": "mkdir folder0",
+            "post-setup": "mkdir folder1",
+            "post-deploy": "mkdir folder2"
         }
     }
 }
