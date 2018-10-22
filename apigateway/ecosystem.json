@@ -19,12 +19,15 @@
     "deploy": {
         "production": {
             "user": "apulcino",
-            "host": "158.50.163.114",
+            "host": [
+                "158.50.163.114"
+            ],
             "ref": "origin/master",
             "repo": "https://github.com/apulcino/production.git",
             "path": "./MSAFO",
             "pre-setup": "",
-            "post-deploy": "chmod +x linux-deploy.sh && linux-deploy.sh"
+            "post-setup": "",
+            "post-deploy": "npm install"
         }
     }
 }
