@@ -26,8 +26,7 @@
             "repo": "https://github.com/apulcino/production.git",
             "path": "./MSAFO",
             "pre-setup": "",
-            "xxpost-setup": "cd MSAFO/source/apigateway && npm install && cd library && npm install && cd .. && cd .. && pm2 startOrRestart ./apigateway/ecosystem.json --env production",
-            "post-setup": "./MSAFO/source/pm2deploy.sh",
+            "post-setup": "cd MSAFO/source/apigateway && npm install && cd library && npm install && cd .. && cd .. && pm2 startOrRestart ./apigateway/ecosystem.json --env production",
             "post-deploy": ""
         }
     }
