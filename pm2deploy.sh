@@ -1,10 +1,11 @@
-cd MSAFO/source/apigateway
+cd MSAFO/source
+cd apigateway
 npm install
 cd library
 npm install
 cd ..
 cd ..
-cd MSAFO/source/afoevents
+cd afoevents
 npm install
 cd library
 npm install
