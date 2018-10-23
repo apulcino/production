@@ -4,7 +4,7 @@
             "name": "afoevents",
             "script": "./afoevents/server.js",
             "args": "one two",
-            "instances": 1,
+            "instances": 2,
             "autorestart": true,
             "watch": false,
             "max_memory_restart": "1G",
