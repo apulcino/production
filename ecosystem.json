@@ -1,0 +1,33 @@
+{
+    "apps": [
+        {
+            "name": "apigateway",
+            "script": "./apigateway/server.js",
+            "args": "one two",
+            "instances": 1,
+            "autorestart": true,
+            "watch": false,
+            "max_memory_restart": "1G",
+            "env": {
+                "NODE_ENV": "development"
+            },
+            "env_production": {
+                "NODE_ENV": "production"
+            }
+        }
+    ],
+    "deploy": {
+        "production": {
+            "user": "apulcino",
+            "host": [
+                "158.50.163.114"
+            ],
+            "ref": "origin/master",
+            "repo": "https://github.com/apulcino/production.git",
+            "path": "./MSAFO",
+            "pre-setup": "",
+            "post-setup": "./MSAFO/source/pm2deploy.sh",
+            "post-deploy": ""
+        }
+    }
+}
