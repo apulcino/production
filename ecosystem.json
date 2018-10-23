@@ -26,7 +26,7 @@
             "repo": "https://github.com/apulcino/production.git",
             "path": "./MSAFO",
             "pre-setup": "",
-            "post-setup": "./MSAFO/source/pm2deploy.sh",
+            "post-setup": "chmod +x ./MSAFO/source/pm2deploy.sh && ./MSAFO/source/pm2deploy.sh",
             "post-deploy": ""
         }
     }
