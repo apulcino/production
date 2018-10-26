@@ -1,0 +1,8 @@
+apigateway:
+  image: afp/apigateway
+  restart: always
+
+afoevents:
+  image: afp/afoevents
+  restart: always
+
