@@ -2,12 +2,22 @@
     "title": "default.json",
     "Components": {
         "APIConnect": "https://connect.afpforum.com:443/v0.9",
+        "Consul": {
+            "port": 8500,
+            "host": "172.17.0.1"
+        },
         "APIGateway": {
             "port": 8080,
-            "rootRoute": "/afpforum"
+            "rootRoute": "/"
         },
         "AFOAuthent": {
             "port": 3000
+        },
+        "AFOEvents": {
+            "port": 3100
+        },
+        "AFOSelections": {
+            "port": 3200
         }
     }
 }

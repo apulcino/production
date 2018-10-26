@@ -19,11 +19,26 @@
 //     }
 // }
 'use strict';
+const config = require('config');
 const fetch = require('node-fetch');
+
+// Port d'écoute de consul
+let hostConsul = "127.0.0.1";
+if (config.has('Components.Consul.host')) {
+    hostConsul = config.get('Components.Consul.host');
+    //traceMgr.info('Contact consul on host : ' + hostConsul);
+}
+// Port d'écoute de consul
+let portConsul = 8080;
+if (config.has('Components.Consul.port')) {
+    portConsul = config.get('Components.Consul.port');
+    //traceMgr.info('Contact consul on port : ' + portConsul);
+}
+
 var consulMgr = {
     consul: require('consul')({
         "secure": false,
-        "host": "127.0.0.1"
+        "host": hostConsul
     }),
     /**
      * Registration template
@@ -167,7 +182,7 @@ var consulMgr = {
         return newRes || [];
     },
     /**
-    * get list of healthy services : http://localhost:8500/v1/health/service/authent-v1?passing=true
+    * get list of healthy services : http://Consul.host:Consul.port/v1/health/service/authent-v1?passing=true
     * @param {string} srvName - Searched service name.
     * @param {requestCallback} _callbackErr - The callback that handles the error.
     * @param {requestCallback} _callbackOK - The callback that handles the success.
@@ -236,7 +251,7 @@ function ResolveUrl(reqUrl, srvName, HealthyServices) {
  *
  */
 function getConsulHealthyService(srvName) {
-    const consulUrl = 'http://localhost:8500/v1/health/service/' + srvName + '?passing=true';
+    const consulUrl = 'http://' + hostConsul + ':' + portConsul + '/v1/health/service/' + srvName + '?passing=true';
     return new Promise(function (resolve, reject) {
         fetch(consulUrl, {
             method: 'GET',
